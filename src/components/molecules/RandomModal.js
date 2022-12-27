@@ -1,6 +1,5 @@
 import styles from "./styles/modal.module.scss"
 import CasinoIcon from '@mui/icons-material/Casino';
-import FoodList from "../../data/FoodList";
 
 import { useState, useEffect } from "react";
 import axios from "axios";

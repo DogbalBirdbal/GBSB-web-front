@@ -18,7 +18,7 @@ function SelectRestaurant() {
 
     const [open, setOpen] = useState(0);
     const [lunch, setLunch] = useState({ name: "점심을 선택해 주세요.", pic_url: ""});
-    const [night, setNight] = useState({ name: "저녁을 선택해 주세요.", pic_url: ""});
+    const [dinner, setDinner] = useState({ name: "저녁을 선택해 주세요.", pic_url: ""});
 
 
     const openModal = () => {
@@ -63,11 +63,11 @@ function SelectRestaurant() {
                             <div className="flex flex-col gap-2">
                                 <li className="w-60 h-36 border rounded-lg flex justify-center items-center">
                                     <button onClick={openModal}>
-                                        { night.pic_url ? <img className="w-60 h-36 rounded-lg object-cover" src={night.pic_url} alt="default"></img> : "Click!"}
+                                        { dinner.pic_url ? <img className="w-60 h-36 rounded-lg object-cover" src={dinner.pic_url} alt="default"></img> : "Click!"}
                                     </button>
-                                    <RandomModal open={open} close={closeModal} name={actList[2].name} select={setNight} />
+                                    <RandomModal open={open} close={closeModal} name={actList[2].name} select={setDinner} />
                                 </li>
-                                <p className="text-sm">{night.name}</p>
+                                <p className="text-sm">{dinner.name}</p>
                             </div>
                         </div>
                         <div className="flex justify-center items-center gap-x-5">
