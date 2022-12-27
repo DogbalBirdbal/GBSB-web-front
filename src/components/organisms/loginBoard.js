@@ -5,6 +5,8 @@ import Box from "@mui/material/Box";
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
 
+import { Link } from "react-router-dom"
+
 export default function LoginBoard() {
 
     const [emailError, setEmailError] = useState('');
@@ -78,6 +80,9 @@ export default function LoginBoard() {
                         로그인
                     </Button>
                 </Box>
+                <Link to='/signup' style={{ textDecoration: "none" }}>
+                    <p className="text-sm text-gray-500 py-2">회원가입하기</p>
+                </Link>
             </Container>
         </div>
     );

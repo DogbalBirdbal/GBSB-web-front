@@ -5,9 +5,7 @@ import SignUp from '../components/templates/SignUp';
 function SignUpPage() {
     return(
         <>
-        <Header />
-        <SignUp/>
-        <Footer />
+            <SignUp/>
         </>
     );
 }

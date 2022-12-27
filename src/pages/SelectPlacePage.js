@@ -1,5 +1,5 @@
-import Header from "../components/organisms/Header";
-import Footer from "../components/organisms/Footer";
+import Header from "../components/organisms/header";
+import Footer from "../components/organisms/footer";
 import SelectPlaceBox from "../components/atoms/SearchPlace";
 import Map from "../components/atoms/Map";
 function SelectPlacePage(){
