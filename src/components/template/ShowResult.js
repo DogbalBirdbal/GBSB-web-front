@@ -1,5 +1,5 @@
-import FirstBox from "../organisms/FirstBox";
-import SecondBox from "../organisms/SecondBox";
+import FirstBox from "../molecules/FirstBox";
+import SecondBox from "../molecules/SecondBox";
 import ThirdBox from "../organisms/ThirdBox";
 import FooterT from "../organisms/FooterT";
 import HeaderT from "../organisms/HeaderT";

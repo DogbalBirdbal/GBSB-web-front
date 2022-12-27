@@ -4,6 +4,7 @@ function HeaderT(){
     return(
         
         <div class="static h-30 ">
+
         <div className="w-full h-16 white px-default flex items-center justify-between">
         <div>
             
@@ -25,7 +26,10 @@ function HeaderT(){
             
             
         </div>
+
         </div>
+        <div className="w-full h-3 bg-real-blue ="/>
+
    
     </div>
     );
