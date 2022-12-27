@@ -9,13 +9,14 @@ function FooterT({props}) {
   const handleClick = (e) => {
     axios({
       method: "post",
-      url: "api/routesender/",
+      url: "api/myinfo/wishlist/",
       data: {
-        uid: "1234",
-        list: props,
+        id: "1234",
+        route: JSON.stringify(props)
       }
     }).then(() => {
       console.log("Successfully connected");
+      alert("위시리스트에 정상적으로 추가되었습니다.");
     }).catch(() => {
       alert("데이터 베이스 에러");
     });

@@ -5,13 +5,15 @@ function WishListComponent(){
 
     const [wishList, setWishList] = useState([]);
 
+    const id = "1234"
+
     useEffect(() => {
-        axios.get(`/api/myinfo/${uid}`).then((response) => {
+        axios.get(`/api/myinfo/${id}`).then((response) => {
             console.log("Successfully Connected")
-            setWishList(response.data);
+            // setWishList(((response.data.route).substring(1, ((response.data.route).length) - 1)).split('],['));
             console.log(response.data);
         }).catch(() => {
-            console.log("Error")
+            console.log("Error");
         });
     }, [])
 
@@ -22,14 +24,15 @@ function WishListComponent(){
                     <div>
                     <div>나의 위시리스트 {idx + 1} 번</div>
                     <div className="flex gap-x-3">
-                        {lists.map(items => {
-                            return (
-                                <div>
-                                <div className="w-40 h-24 rounded-lg"><img className="w-40 h-24 rounded-lg object-cover" src={items.pic_url} alt="default"></img></div>
-                                <div>{items.name}</div>
-                                </div>
-                            );
-                        })}
+
+                        {/*{lists.map(items => {*/}
+                        {/*    return (*/}
+                        {/*        <div>*/}
+                        {/*        <div className="w-40 h-24 rounded-lg"><img className="w-40 h-24 rounded-lg object-cover" src={items.pic_url} alt="default"></img></div>*/}
+                        {/*        <div>{items.name}</div>*/}
+                        {/*        </div>*/}
+                        {/*    );*/}
+                        {/*})}*/}
                     </div>
                     </div>
                 );
