@@ -15,13 +15,6 @@ function SearchPlace({props}){
     const toggleHandler = () => {
         setOpen(open => !open);
     }
-    const movePage=useNavigate();
-
-    function clickFunc(e){
-        e.preventDefault();
-        console.log('You Clicked submit');
-        movePage('/select/another');
-    }
 
     const placeList = ["서울", "부산", "수원", "제주"]
 
@@ -49,24 +42,6 @@ function SearchPlace({props}){
             ) : ""}
         </div>
     );
-
-   /*
-    return(
-        <div className="relative">
-        <div className=" h-12 m-10 mx-44 bg-gray-light border border-solid border-gray-main rounded-3xl">
-            <form className="flex justify-center items-center"onSubmit={onKeyPress}>
-                <div className="w-full top-0 flex justify-between items-center grid grid-cols-2 divide-x divide-black">
-                    <input class="m-2 flex placeholder:italic justify-center items-center" placeholder="출발지를 입력해주세요..." type="text" name="Start" value={SelectStart} onChange={onStartChange} onKeyPress={onKeyPress}/>
-                    <input class="m-2 flex placeholder:italic justify-center" placeholder="도착지를 입력해주세요..." type="text" name="Final" value={SelectFinal} onChange={onFinalChange} onKeyPress={onKeyPress}/>
-                </div>
-
-            </form>
-            <button className="static justify-between top-100 right-10 w-full" onClick={clickFunc} >검색</button>           
-        </div>
-        </div>
-        
-
-    );*/
 }
 
 export default SearchPlace;

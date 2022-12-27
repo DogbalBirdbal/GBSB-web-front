@@ -24,21 +24,21 @@ export default function SignUpBoard() {
             name: data.get('name'),
         };
 
-        // const emailRegex = /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-        //
-        // if (!emailRegex.test(email)) {
-        //     setEmailError('올바른 이메일 형식이 아닙니다.');
-        // } else if (email === null && password === null) {
-        //     setEmailError('이메일을 입력하세요.');
-        //     setPasswordError('비밀번호를 입력하세요.');
-        // } else if (email === null) {
-        //     setEmailError('이메일을 입력하세요.');
-        // } else if (password === null) {
-        //     setPasswordError('비밀번호를 입력하세요.');
-        // } else {
-        //     setEmailError('');
-        //     setPasswordError('');
-        // }
+        const emailRegex = /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        
+        if (!emailRegex.test(memberData.email)) {
+            setEmailError('올바른 이메일 형식이 아닙니다.');
+        } else if (memberData.email === null && memberData.password === null) {
+            setEmailError('이메일을 입력하세요.');
+            setPasswordError('비밀번호를 입력하세요.');
+        } else if (memberData.email === null) {
+            setEmailError('이메일을 입력하세요.');
+        } else if (memberData.password === null) {
+            setPasswordError('비밀번호를 입력하세요.');
+        } else {
+            setEmailError('');
+            setPasswordError('');
+        }
 
         console.log(memberData);
 
