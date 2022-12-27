@@ -2,16 +2,28 @@ import { useLocation } from "react-router-dom";
 import FirstBox from "../molecules/FirstBox";
 import SecondBox from "../molecules/SecondBox";
 
+import { useState } from "react";
+
 import FooterT from "../organisms/FooterT";
 
 function ShowResult() {
+
+    const [list, setList] = useState([])
+
     const location = useLocation();
-    const list = location.state.list; //이건 이렇게 넘김(?) 받고
+    const actList = location.state.actList;
+    const lunch = location.state.lunch;
+    const dinner = location.state.dinner;
+    const hotel = location.state.hotel;
+
+    actList.splice(1, 0, lunch);
+    actList.splice(4, 0, dinner);
+    actList.push(hotel);
 
     return(
         <div className="flex flex-col">
             <div>
-                {list.map((items, idx)=> {
+                {actList.map((items, idx)=> {
                     if (idx % 2 === 0) {
                         return <FirstBox props={items} />
                     } else {
@@ -19,9 +31,8 @@ function ShowResult() {
                     }
                 })}
             </div>
-            <FooterT />
+            <FooterT props={actList} />
         </div>
     );
 }
-
 export default ShowResult;

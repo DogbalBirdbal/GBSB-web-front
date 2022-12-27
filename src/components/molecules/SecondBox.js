@@ -1,7 +1,7 @@
 function SecondBox({props}){
 
     function handleClick(e){
-        window.open(props.url)
+        window.open(props.info)
     }
 
     return(
