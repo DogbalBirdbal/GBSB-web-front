@@ -1,7 +1,7 @@
-import Header from "../organisms/header.js"
+import Header from "../organisms/Header.js"
 import Announcement from "../organisms/announcement.js";
 import SelectorBoard from "../organisms/selectorBoard.js";
-import Footer from '../organisms/footer.js'
+import Footer from '../organisms/Footer.js'
 
 function SelectAnother() {
     return (

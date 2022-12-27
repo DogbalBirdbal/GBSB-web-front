@@ -2,7 +2,7 @@
 function Map(){
     return(
         
-        <img class="m-auto" src="/images/k-map.jpg" alt="그림" />
+        <img class="m-auto mb-8" src="/images/gbsb-map.png" alt="그림" />
         
     );
 }

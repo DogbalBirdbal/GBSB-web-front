@@ -7,9 +7,8 @@ import SelectAnotherPage from "./pages/SelectAnotherPage";
 import SelectResultPage from "./pages/SelectResultPage";
 import SelectRestaurantPage from "./pages/SelectRestaurantPage";
 import ResultPage from "./pages/ResultPage";
-import ErrorPage from "./pages/ErrorPage";
 import LoginPage from "./pages/LoginPage";
-
+import DayonePage from "./pages/DayonePage";
 import "./styles/global.css"
 
 function Router() {
@@ -21,7 +20,12 @@ function Router() {
                 <Route exact path="/select/result" element={<SelectResultPage />} />
                 <Route exact path="/select/food" element={<SelectRestaurantPage />} />
                 <Route exact path="/result" element={<ResultPage />} />
+                <Route exact path="/result/:id" element={<ResultPage />} />
                 <Route exact path="/login" element={<LoginPage />} />
+                <Route exact path="/result/day1" element={<DayonePage/>} />
+                <Route exact path="/result/day2" element={<DayonePage/>} />
+                <Route exact path="/result/day3" element={<DayonePage/>} />
+
             </Routes>
         </BrowserRouter>
     );

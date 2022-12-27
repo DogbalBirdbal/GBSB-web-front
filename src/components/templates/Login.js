@@ -1,6 +1,6 @@
-import Header from "../organisms/header.js"
+import Header from "../organisms/Header.js"
 import LoginBoard from "../organisms/loginBoard.js";
-import Footer from '../organisms/footer.js'
+import Footer from '../organisms/Footer.js'
 
 function Login() {
     return (
