@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ReactCalendar from '../atoms/ReactCalendar';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
-function DateSelector() {
+function DateSelector(props) {
+
+    const { first, last } = props;
 
     const [open, setOpen] = useState(0);
     const [print, setPrint] = useState("");
@@ -13,6 +15,14 @@ function DateSelector() {
     const toggleHandler = () => {
         setOpen(open => !open);
     }
+
+    const dateFormatter = (date) => {
+        let format = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + 1);
+        return format;
+    }
+
+    first(dateFormatter(new Date(print[0])));
+    last(dateFormatter(new Date(print[1])));
 
     return(
         <div>

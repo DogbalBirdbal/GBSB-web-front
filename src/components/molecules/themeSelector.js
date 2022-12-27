@@ -2,21 +2,24 @@ import ThemeButton from "../atoms/themeButton";
 import ThemeList from "../../data/ThemeList";
 import { useState } from "react";
 
-function ThemeSelector() {
+function ThemeSelector({props}) {
 
-    const [clicked, setClicked] = useState(0);
-
-    console.log(clicked);
+    const [clicked, setClicked] = useState("");
 
     return(
-        <div className="flex gap-x-theme-gap">
-            {ThemeList.map(({ title, imgSrc }) => (
-                    <ThemeButton
-                        title={title}
-                        imgSrc={imgSrc}
-                        clicked={setClicked}
-                    />
-            ))}
+        <div>
+            <div>{clicked}</div>
+            <div className="flex gap-x-theme-gap">
+                {ThemeList.map(({ title, imgSrc }, idx) => (
+                        <ThemeButton
+                            idx={idx}
+                            title={title}
+                            imgSrc={imgSrc}
+                            clicked={setClicked}
+                            theme={props}
+                        />
+                ))}
+            </div>
         </div>
     );
 }

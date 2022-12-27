@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     z-index: 99;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.1);
 
     display: flex;
     justify-content: center;
@@ -26,13 +26,12 @@
 
 .titleContainer {
     padding: 1.3rem 1rem;
-    background-color: #ebf4f7;
+    background-color: #1b1464;
     border-radius: 10px 10px 0 0;
     border-bottom: 1px solid #eeeeee;
 
     p {
-        font-size: 1.1rem;
-        font-family: AppleSDGothicNeoM;
+        color: white;
     }
 }
 
@@ -45,17 +44,37 @@
 
     .articleContainer {
         display: flex;
-        flex-direction: column;
-        row-gap: 0.5rem;
-    }
+        justify-content: center;
+        align-items: center;
+        column-gap: 1.5rem;
 
-    p:nth-child(1) {
-        font-size: 1rem;
-        font-family: AppleSDGothicNeoL;
-    }
+        .randomContainer {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-    p:nth-child(2) {
-        line-height: 1.5rem;
+            row-gap: 0.7rem;
+
+            p {
+                font-size: smaller;
+            }
+
+            img {
+                width: 10rem;
+                height: 10rem;
+                object-fit: cover;
+                border: 1px solid #ebf4f7;
+                border-radius: 10px;  
+            }
+        }
+
+        .hoverContainer {
+            position: absolute;
+            top: 50%;
+            transform: translate( 0%, -50% );
+        }
     }
 }
 
@@ -68,10 +87,14 @@
 
     border-top: 1px solid #eeeeee;
 
+    column-gap: 1rem;
+
     .closeButton {
         border: 0;
+        background-color: #1b1464;
         padding: 0.3rem 0.7rem;
         border-radius: 5px;
+        color: white;
     }
 }
 

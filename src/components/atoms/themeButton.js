@@ -1,22 +1,17 @@
 import { useState } from "react";
-import styled from "styled-components";
 
-
-function ThemeButton({title, imgSrc, clicked}) {
+function ThemeButton({idx, title, imgSrc, clicked, theme}) {
 
     const [hover, setHover] = useState(0);
-
-    const handleOnclick = (e) => {
-        clicked(title);
-    }
+    const [index, setIndex] = useState(null);
 
     return(
-        <div className="relative w-theme-width h-theme-height rounded-xl" onMouseOver={() => setHover(1)} onMouseOut={() => setHover(0)} onClick={handleOnclick}>
+        <div className="relative w-theme-width h-theme-height rounded-xl" onMouseOver={() => setHover(1)} onMouseOut={() => setHover(0)} onClick={() => {clicked(title); theme(title); setIndex(idx)}}>
             <div>
                 <img className="w-theme-width h-theme-height object-cover rounded-xl" src={imgSrc} alt="default"></img>
             </div>
             {hover ? (
-                <div className="absolute top-0 w-theme-width h-theme-height rounded-xl opacity-0 hover:bg-blue-main hover:opacity-90 duration-500 flex justify-center items-center">
+                <div className="absolute top-0 w-theme-width h-theme-height rounded-xl opacity-0 hover:bg-blue-light hover:opacity-80 duration-500 flex justify-center items-center">
                     <p className="text-white">{title}</p>
                 </div>
             ) : (

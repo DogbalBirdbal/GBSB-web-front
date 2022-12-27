@@ -30,11 +30,12 @@ module.exports = {
       },
       colors: {
         'blue-dark': '#2980f2',
-        'blue-main': '#3e8df4',
+        'blue-main': '#1b1464',
         'blue-medium': '#6ea9f7',
         'blue-semilight': '#9fc6f9',
         'blue-light': '#cfe2fc',
         'real-blue': '#1b1464',
+        'blue-light': '#afafce',
 
         'gray-main': '#999999',
         'gray-medium': '#cccccc',
