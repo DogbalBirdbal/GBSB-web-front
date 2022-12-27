@@ -1,42 +1,43 @@
-import React, {useState} from 'react';
-import {AiOutlineSearch} from 'react-icons/ai'
+import React, { useState } from 'react';
 
-function SearchPlace(props){
+import SearchIcon from '@mui/icons-material/Search';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
-    const[inputs, setInputs] = useState({
-        SearchStart: "",
-        SearchFinal: "",
-    });
-    const{ Start, Final} = inputs;
+function SearchPlace({props}){
 
-    const onChange=(e)=>{
-        //e를 통해 변화가 일어난 input의 정보를 받을 수 있다.
-        const {value, name} = e.target;
-        setInputs({
-            ...inputs,
-            [name]: value
-        });
-    };
-    /* const onReset=()=>{
-        setInputs({
-            Start: '',
-            Final:'',
-        })
-    }*/
+    const [open, setOpen] = useState(0);
+    const [click, setClick] = useState(null);
+    const [place, setPlace] = useState("어디로 가세요?");
+
+    const toggleHandler = () => {
+        setOpen(open => !open);
+    }
+
+    const placeList = ["서울", "부산", "수원", "제주"]
+
     return(
-        <div className="h-12 m-10 mx-44 bg-gray-light border border-solid border-gray-main rounded-3xl flex items-center grid grid-cols-2 divide-x divide-black">
-        
-            <div className="m-2">
-                <input placeholder="어디서 출발하세요?" type="text" name="Start" value={Start} onChange={onChange}/>
+        <div>
+            <div className="w-full h-12 bg-gray-light border border-solid border-gray-main flex items-center justify-between px-0.8vw">
+                <div className="flex gap-x-5 items-center">
+                    <SearchIcon className="scale-125" />
+                    <p>{place}</p>
+                </div>
+                {open ? <ExpandLessIcon className="scale-125" onClick={toggleHandler} /> : <ExpandMoreIcon className="scale-125" onClick={toggleHandler} />}
             </div>
-
-            <div className="m-2">
-                <input className="input" placeholder="어디로 가세요?" type="text" name="Final" value={Final} onChange={onChange}/>
-            </div>
-
-            <div>
-                <AiOutlineSearch/>
-            </div>
+            {open ? (
+                <div>
+                    <div className="w-full bg-gray-light border-t border-x border-solid border-gray-main mt-0.5vw">
+                        {placeList.map((item, idx) => {
+                                return (
+                                    <div
+                                        className={(idx === click ? "w-full h-12 border-b border-solid border-gray-main flex items-center px-0.8vw bg-blue-main text-white" : "w-full h-12 border-b border-solid border-gray-main flex items-center px-0.8vw hover:bg-blue-light duration-200")}    
+                                        onClick={() => {setPlace(item); props(item); setClick(idx);}}>{item}</div>
+                                )}
+                            )}
+                    </div>
+                </div>
+            ) : ""}
         </div>
     );
 }

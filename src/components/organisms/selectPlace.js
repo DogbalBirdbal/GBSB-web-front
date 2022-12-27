@@ -7,7 +7,7 @@ function SearchPlace(props){
         SearchStart: "",
         SearchFinal: "",
     });
-    const{ Start, Final} = inputs;
+    const{ Start, Final } = inputs;
 
     const onChange=(e)=>{
         //e를 통해 변화가 일어난 input의 정보를 받을 수 있다.
