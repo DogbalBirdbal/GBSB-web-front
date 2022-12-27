@@ -2,25 +2,44 @@ import { useState } from "react";
 import Announcement from "../organisms/announcement.js";
 import RandomModal from "../molecules/RandomModal.js";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function SelectRestaurant() {
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const actList = location.state.actList;
+    const hotel = location.state.hotel;
 
     const onClickHandler = () => {
         navigate("/result", { })
     }
 
-    const [open, setOpen] = useState(0);
+    const [fopen, setFopen] = useState(0);
+    const [lopen, setLopen] = useState(0);
+    const [lunch, setLunch] = useState({ name: "점심을 선택해 주세요.", pic_url: ""});
+    const [dinner, setDinner] = useState({ name: "저녁을 선택해 주세요.", pic_url: ""});
 
-    const openModal = () => {
-        setOpen(1);
+
+    const fopenModal = () => {
+        setFopen(1);
     }
 
-    const closeModal = () => {
-        setOpen(0);
+    const fcloseModal = () => {
+        setFopen(0);
     }
+
+    const lopenModal = () => {
+        setLopen(1);
+    }
+
+    const lcloseModal = () => {
+        setLopen(0);
+    }
+
+    console.log("Fopen: " + fopen);
+    console.log("Lopen: " + lopen);
 
     return (
         <div className="w-full px-default">
@@ -31,38 +50,42 @@ function SelectRestaurant() {
                     <ul className="flex flex-col gap-y-5 my-5">
                         <div className="flex justify-center items-center gap-x-5">
                             <div className="flex flex-col gap-2">
-                                <li className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</li>
-                                <p className="text-sm">활동 이름입니다.</p>
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center"></div>
+                                <p className="text-sm">{actList[0].name}</p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <li className="w-60 h-36 border rounded-lg flex justify-center items-center">
-                                    <button onClick={openModal}>Click!</button>
-                                    <RandomModal open={open} close={closeModal} />
-                                </li>
-                                <p className="text-sm">점심을 선택해 주세요.</p>
-                            </div>
-                        </div>
-                        <div className="flex justify-center items-center gap-x-5">
-                            <div className="flex flex-col gap-2">
-                                <li className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</li>
-                                <p className="text-sm">활동 이름입니다.</p>
-                            </div>
-                            <div className="flex flex-col gap-2">
-                                <li className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</li>
-                                <p className="text-sm">활동 이름입니다.</p>
-                            </div>
-                            <div className="flex flex-col gap-2">
-                                <li className="w-60 h-36 border rounded-lg flex justify-center items-center">
-                                    <button onClick={openModal}>Click!</button>
-                                    <RandomModal open={open} close={closeModal} />
-                                </li>
-                                <p className="text-sm">저녁을 선택해 주세요.</p>
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">
+                                    <button onClick={fopenModal}>
+                                        { lunch.pic_url ? <img className="w-60 h-36 rounded-lg object-cover" src={lunch.pic_url} alt="default"></img> : "Click!"}
+                                    </button>
+                                    { fopen ? <RandomModal close={fcloseModal} name={actList[0].name} select={setLunch} /> : "" }
+                                </div>
+                                <p className="text-sm">{lunch.name}</p>
                             </div>
                         </div>
                         <div className="flex justify-center items-center gap-x-5">
                             <div className="flex flex-col gap-2">
-                                <li className="w-60 h-36 border rounded-lg flex justify-center items-center">숙소</li>
-                                <p className="text-sm">숙소 이름입니다.</p>
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</div>
+                                <p className="text-sm">{actList[1].name}</p>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</div>
+                                <p className="text-sm">{actList[2].name}</p>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">
+                                    <button onClick={lopenModal}>
+                                        { dinner.pic_url ? <img className="w-60 h-36 rounded-lg object-cover" src={dinner.pic_url} alt="default"></img> : "Click!"}
+                                    </button>
+                                    { lopen ? <RandomModal close={lcloseModal} name={actList[2].name} select={setDinner} /> : "" }
+                                </div>
+                                <p className="text-sm">{dinner.name}</p>
+                            </div>
+                        </div>
+                        <div className="flex justify-center items-center gap-x-5">
+                            <div className="flex flex-col gap-2">
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">숙소</div>
+                                <p className="text-sm">{hotel.name}</p>
                             </div>
                         </div>
                     </ul>

@@ -8,6 +8,7 @@ import SelectResultPage from "./pages/SelectResultPage";
 import SelectRestaurantPage from "./pages/SelectRestaurantPage";
 import ResultPage from "./pages/ResultPage";
 import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
 import "./styles/global.css"
 
 function Router() {
@@ -21,8 +22,7 @@ function Router() {
                 <Route exact path="/result" element={<ResultPage />} />
                 <Route exact path="/result/:id" element={<ResultPage />} />
                 <Route exact path="/login" element={<LoginPage />} />
-
-
+                <Route exact path="/signup" element={<SignUpPage />} />
             </Routes>
         </BrowserRouter>
     );

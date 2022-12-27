@@ -9,7 +9,6 @@ function Login() {
             <LoginBoard />
             <Footer />
         </>
-        
     );
 }
 

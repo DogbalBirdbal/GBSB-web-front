@@ -33,31 +33,31 @@ function SelectorBoard() {
             <div className="w-full px-default">
                 <div className="flex flex-col gap-y-selector-gap">
                     <div className="flex flex-col gap-y-1vw justify-center">
-                        <p>위치</p>
+                        <div className="flex items-center"><p>위치</p></div>
                         <div>
                             <SelectPlaceBox props={setPlace} />
                         </div>
                     </div>
                     <div className="flex flex-col gap-y-1vw justify-center">
-                        <p>날짜</p>
+                        <div className="flex items-center"><p>날짜</p></div>
                         <div>
                             <DateSelector first={setFirstDate} last={setLastDate} />
                         </div>
                     </div>
                     <div className="flex flex-col gap-y-1vw justify-center">
-                        <p>인원</p>
+                        <div className="flex items-center"><p>인원</p></div>
                         <div>
                             <NumberSelector />
                         </div>
                     </div>
                     <div className="flex flex-col gap-y-1vw justify-center">
-                        <p>이동 수단</p>
+                        <div className="flex items-center"><p>이동 수단</p></div>
                         <div>
                             <TransSelector />
                         </div>
                     </div>
                     <div className="flex flex-col gap-y-1vw justify-center">
-                        <p>테마별</p>
+                        <div className="flex items-center"><p>테마별</p></div>
                         <div className="flex justify-center">
                             <ThemeSelector props={setTheme} />
                         </div>
