@@ -12,11 +12,17 @@ function SelectResult() {
     const location = useLocation();
 
     const onClickHandler = () => {
-        navigate("/select/food", { state: { actList: actList, hotel: hotel } })
+        navigate("/select/food", { state: { actList: selectList, hotel: hotel } })
     }
 
-    const [actList, setActList] = useState("");
+    const [firstactList, setFirstActList] = useState("");
+    const [lastactList, setLastActList] = useState("");
+    const [selectList, setSelectList] = useState("");
+
     const [hotel, setHotel] = useState("");
+
+    const [firstClicked, setFirstClicked] = useState(0);
+    const [lastClicked, setLastClicked] = useState(0);
 
     const place = location.state.place;
     const firstDate = location.state.firstDate;
@@ -30,7 +36,15 @@ function SelectResult() {
 
         axios.get(`/api/choicepath/${placeInput}`).then((response) => {
             console.log("Successfully Connected")
-            setActList(response.data);
+            setFirstActList(response.data);
+            console.log(response.data);
+        }).catch(() => {
+            console.log("Error")
+        });
+
+        axios.get(`/api/choicepath/${placeInput}`).then((response) => {
+            console.log("Successfully Connected")
+            setLastActList(response.data);
             console.log(response.data);
         }).catch(() => {
             console.log("Error")
@@ -45,7 +59,7 @@ function SelectResult() {
 
     },[]);
 
-    if (actList) {
+    if (firstactList && lastactList) {
         return (
             <div className="w-full px-default">
                 <Announcement
@@ -53,8 +67,9 @@ function SelectResult() {
                 <div>
                     <div>
                         <p className="flex justify-center items-center">Type A</p>
-                        <ul className="flex justify-center gap-x-5 gap-y-5 my-5">
-                            {actList.map(item => {
+                        <ul className={(firstClicked === 1 ? "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg bg-blue-light" : "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg hover:bg-blue-light duration-200")}
+                            onClick={() => {setFirstClicked(1); setLastClicked(0); setSelectList(lastactList)}}>
+                            {firstactList.map(item => {
                                 return (
                                     <div className="flex flex-col gap-2">
                                         <li className="w-60 h-36 flex justify-center items-center">
@@ -75,23 +90,24 @@ function SelectResult() {
                     <hr />
                     <div>
                         <p className="flex justify-center items-center mt-5">Type B</p>
-                        <ul className="flex justify-center gap-x-5 gap-y-5 my-5">
-                                <div className="flex flex-col gap-2">
-                                    <li className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</li>
-                                    <p className="text-sm">활동 이름입니다.</p>
-                                </div>
-                                <div className="flex flex-col gap-2">
-                                    <li className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</li>
-                                    <p className="text-sm">활동 이름입니다.</p>
-                                </div>
-                                <div className="flex flex-col gap-2">
-                                    <li className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</li>
-                                    <p className="text-sm">활동 이름입니다.</p>
-                                </div>
-                                <div className="flex flex-col gap-2">
-                                    <li className="w-60 h-36 border rounded-lg flex justify-center items-center">숙소</li>
-                                    <p className="text-sm">숙소 이름입니다.</p>
-                                </div>
+                        <ul className={(lastClicked === 1 ? "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg bg-blue-light" : "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg hover:bg-blue-light duration-200")}
+                            onClick={() => {setFirstClicked(0); setLastClicked(1); setSelectList(lastactList)}}>
+                            {lastactList.map(item => {
+                                return (
+                                    <div className="flex flex-col gap-2">
+                                        <li className="w-60 h-36 flex justify-center items-center">
+                                            <img className="w-60 h-36 border rounded-lg object-cover" src={item.pic_url} alt="default"></img>
+                                        </li>
+                                        <p className="text-sm">{item.name}</p>
+                                    </div>
+                                )}
+                            )}
+                            <div className="flex flex-col gap-2">
+                                <li className="w-60 h-36 flex justify-center items-center">
+                                    <img className="w-60 h-36 border rounded-lg object-cover" src={hotel.pic_url} alt="default"></img>
+                                </li>
+                                <p className="text-sm">{hotel.name}</p>
+                            </div>
                         </ul>
                     </div>
                     <div className="w-full h-150 flex justify-center items-center">

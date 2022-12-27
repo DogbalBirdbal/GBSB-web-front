@@ -1,11 +1,14 @@
-import HeaderT from "../components/organisms/HeaderT";
 import ShowResult from "../components/template/ShowResult";
+
+import Header from "../components/organisms/header";
 import Footer from "../components/organisms/footer";
-import FooterT from "../components/organisms/FooterT";
+
 function ResultPage(){
     return(
             <>
+            <Header />
             <ShowResult/>
+            <Footer />
             </>
     )
 

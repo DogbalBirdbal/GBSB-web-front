@@ -4,7 +4,9 @@ function Header() {
     return(
         <div className="w-full h-16 px-default flex items-center justify-between border-b">
             <div>
-                <img className="w-10" src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
+                <Link to='/' style={{ textDecoration: "none" }}>
+                    <img className="w-10" src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
+                </Link>
             </div>
             <div className="flex gap-x-5 text-blue-main">
                 <Link to='/login' style={{ textDecoration: "none" }}>

@@ -13,7 +13,7 @@ function SelectRestaurant() {
     const hotel = location.state.hotel;
 
     const onClickHandler = () => {
-        navigate("/result", { })
+        navigate("/result", { state: { actList: actList, lunch: lunch, dinner: dinner, hotel: hotel} })
     }
 
     const [fopen, setFopen] = useState(0);
@@ -50,7 +50,9 @@ function SelectRestaurant() {
                     <ul className="flex flex-col gap-y-5 my-5">
                         <div className="flex justify-center items-center gap-x-5">
                             <div className="flex flex-col gap-2">
-                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center"></div>
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">
+                                    <img className="w-60 h-36 rounded-lg object-cover" src={actList[0].pic_url} alt="default"></img>
+                                </div>
                                 <p className="text-sm">{actList[0].name}</p>
                             </div>
                             <div className="flex flex-col gap-2">
@@ -65,11 +67,15 @@ function SelectRestaurant() {
                         </div>
                         <div className="flex justify-center items-center gap-x-5">
                             <div className="flex flex-col gap-2">
-                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</div>
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">
+                                    <img className="w-60 h-36 rounded-lg object-cover" src={actList[1].pic_url} alt="default"></img>
+                                </div>
                                 <p className="text-sm">{actList[1].name}</p>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">활동1</div>
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">
+                                    <img className="w-60 h-36 rounded-lg object-cover" src={actList[2].pic_url} alt="default"></img>
+                                </div>
                                 <p className="text-sm">{actList[2].name}</p>
                             </div>
                             <div className="flex flex-col gap-2">
@@ -84,7 +90,9 @@ function SelectRestaurant() {
                         </div>
                         <div className="flex justify-center items-center gap-x-5">
                             <div className="flex flex-col gap-2">
-                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">숙소</div>
+                                <div className="w-60 h-36 border rounded-lg flex justify-center items-center">
+                                    <img className="w-60 h-36 rounded-lg object-cover" src={hotel.pic_url} alt="default"></img>
+                                </div>
                                 <p className="text-sm">{hotel.name}</p>
                             </div>
                         </div>
