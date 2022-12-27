@@ -27,7 +27,6 @@ function Router() {
                 <Route exact path="/result/day1" element={<DayonePage/>} />
                 <Route exact path="/result/day2" element={<DayonePage/>} />
                 <Route exact path="/result/day3" element={<DayonePage/>} />
-
             </Routes>
         </BrowserRouter>
     );
