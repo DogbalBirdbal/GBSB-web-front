@@ -2,56 +2,79 @@ import styles from "./styles/modal.module.scss"
 import CasinoIcon from '@mui/icons-material/Casino';
 import FoodList from "../../data/FoodList";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const RandomModal = (props) => {
-
-    const { open, close } = props;
+const RandomModal = ({open, close, name, select}) => {
 
     const [hover, setHover] = useState(0);
-    const [list, setList] = useState(FoodList.slice(0, 3));
+    const [list, setList] = useState("");
     const [item, setItem] = useState("");
 
+    useEffect(() => {
+        if (name) {
+            axios.get(`/api/crawlingfood/${name}`).then((response) => {
+                console.log("Successfully Connected")
+                setList(response.data);
+                console.log(response.data);
+            }).catch(() => {
+                console.log("Error")
+            });
+        }
+    }, [])
+
     const RandomHandler = (e) => {
-        setList(FoodList.sort(() => Math.random() - 0.5).slice(0, 3));
+        if (name) {
+            axios.get(`/api/crawlingfood/${name}`).then((response) => {
+                console.log("Successfully Connected")
+                setList(response.data);
+                console.log(response.data);
+            }).catch(() => {
+                console.log("Error")
+            });
+        }
     }
 
-    return(
-        <div>
-            { open ? (
-                <div className={styles.modalContainer}>
-                    <div className={styles.bodyContainer}>
-                        <div className={styles.titleContainer}>
-                            <p>식당을 선택해 주세요.</p>
-                        </div>
-                        <div className={styles.contentContainer}>
-                            <div className={styles.articleContainer}>
-                                {list.map(item => {
-                                    return (
-                                        <div className={styles.randomContainer} onMouseOver={() => setHover(1)} onMouseOut={() => setHover(0)} onClick={() => {setItem(item.title)}}>
-                                            <img src={item.imgSrc} alt="default"></img>
-                                            {hover ? (
-                                                <div className="absolute top-0 w-40 h-40 rounded-xl opacity-0 hover:bg-blue-main hover:opacity-90 duration-500 flex justify-center items-center">
-                                                    <p className="text-white">{item.title}</p>
-                                                </div>
-                                            ) : (
-                                                ""
-                                            )}
-                                        </div>
+    if (list) {
+        return(
+            <div>
+                { open ? (
+                    <div className={styles.modalContainer}>
+                        <div className={styles.bodyContainer}>
+                            <div className={styles.titleContainer}>
+                                <p>식당을 선택해 주세요.</p>
+                            </div>
+                            <div className={styles.contentContainer}>
+                                <div className={styles.articleContainer}>
+                                    {list.map(item => {
+                                        return (
+                                            <div className={styles.randomContainer} onMouseOver={() => setHover(1)} onMouseOut={() => setHover(0)} onClick={() => {setItem(item)}}>
+                                                <img src={item.pic_url} alt="default"></img>
+                                                {hover ? (
+                                                    <div className="absolute top-0 w-40 h-40 rounded-xl opacity-0 hover:bg-blue-main hover:opacity-90 duration-500 flex justify-center items-center">
+                                                        <p className="text-white">{item.name}</p>
+                                                    </div>
+                                                ) : (
+                                                    ""
+                                                )}
+                                            </div>
+                                        )}
                                     )}
-                                )}
-                                <CasinoIcon fontSize="large" style={{ fill: '#3b398e' }} onClick={RandomHandler} />
+                                    <CasinoIcon fontSize="large" style={{ fill: '#3b398e' }} onClick={RandomHandler} />
+                                </div>
+                            </div>
+                            <div className={styles.buttonContainer}>
+                                <p>{item.name}</p>
+                                <div onClick={() => {select(item)}}>
+                                    <button className={styles.closeButton} onClick={close}>선택</button>
+                                </div>
                             </div>
                         </div>
-                        <div className={styles.buttonContainer}>
-                            <p>{item}</p>
-                            <button className={styles.closeButton} onClick={close}>선택</button>
-                        </div>
                     </div>
-                </div>
-            ) : null}
-        </div>
-    );
+                ) : null}
+            </div>
+        );
+    } else return null;
 }
 
 export default RandomModal;
