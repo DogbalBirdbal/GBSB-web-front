@@ -28,10 +28,7 @@ export default function LoginBoard() {
 
         const emailRegex = /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
-        axios.post(`/api/login`,{
-            email: memberData.email,
-            password: memberData.password
-        })
+
 
         if (!emailRegex.test(email)) {
             setEmailError('올바른 이메일 형식이 아닙니다.');
@@ -46,6 +43,25 @@ export default function LoginBoard() {
             setEmailError('');
             setPasswordError('');
         }
+
+        axios({
+                    method: "post",
+                    url: "/api/login",
+                    data: {
+                        email: memberData.email,
+                        password: memberData.password
+                    }
+                }).then((response) => {
+                    console.log(response.data);
+
+                    alert("가입이 정상적으로 완료되었습니다.");
+                    document.getElementById('uid').value = null;
+                    document.getElementById('password').value = null
+
+                }).catch(() => {
+                    alert("데이터 베이스 에러");
+                });
+
     
 
     }

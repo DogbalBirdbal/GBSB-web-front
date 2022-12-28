@@ -67,20 +67,20 @@ function SelectResult() {
                 <div>
                     <div>
                         <p className="flex justify-center items-center">Type A</p>
-                        <ul className={(firstClicked === 1 ? "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg bg-blue-light" : "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg hover:bg-blue-light duration-200")}
+                        <ul className={(firstClicked === 1 ? "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg bg-blue-light" : "flex justify-center gap-x-5 gap-y-5 my-10 mb-10 rounded-lg hover:bg-blue-semilight w-172 duration-200")}
                             onClick={() => {setFirstClicked(1); setLastClicked(0); setSelectList(lastactList)}}>
                             {firstactList.map(item => {
                                 return (
-                                    <div className="flex flex-col gap-2">
-                                        <li className="w-60 h-36 flex justify-center items-center">
+                                    <div className="flex flex-col justify-center items-center">
+                                        <li className="w-60 h-40 flex justify-center items-center">
                                             <img className="w-60 h-36 border rounded-lg object-cover" src={item.pic_url} alt="default"></img>
                                         </li>
                                         <p className="text-sm">{item.name}</p>
                                     </div>
                                 )}
                             )}
-                            <div className="flex flex-col gap-2">
-                                <li className="w-60 h-36 flex justify-center items-center">
+                            <div className="flex flex-col justify-center items-center">
+                                <li className="w-60 h-40 flex justify-center items-center">
                                     <img className="w-60 h-36 border rounded-lg object-cover" src={hotel.pic_url} alt="default"></img>
                                 </li>
                                 <p className="text-sm">{hotel.name}</p>
@@ -90,20 +90,20 @@ function SelectResult() {
                     <hr />
                     <div>
                         <p className="flex justify-center items-center mt-5">Type B</p>
-                        <ul className={(lastClicked === 1 ? "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg bg-blue-light" : "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg hover:bg-blue-light duration-200")}
+                        <ul className={(lastClicked === 1 ? "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg bg-blue-light" : "flex justify-center gap-x-5 gap-y-5 my-5 rounded-lg hover:bg-blue-semilight duration-200")}
                             onClick={() => {setFirstClicked(0); setLastClicked(1); setSelectList(lastactList)}}>
                             {lastactList.map(item => {
                                 return (
-                                    <div className="flex flex-col gap-2">
-                                        <li className="w-60 h-36 flex justify-center items-center">
+                                    <div className="flex flex-col justify-center items-center">
+                                        <li className="w-60 h-40 flex justify-center items-center">
                                             <img className="w-60 h-36 border rounded-lg object-cover" src={item.pic_url} alt="default"></img>
                                         </li>
-                                        <p className="text-sm">{item.name}</p>
+                                        <p className="text-sm ">{item.name}</p>
                                     </div>
                                 )}
                             )}
-                            <div className="flex flex-col gap-2">
-                                <li className="w-60 h-36 flex justify-center items-center">
+                            <div className="flex flex-col justify-center items-center">
+                                <li className="w-60 h-40 flex justify-center items-center">
                                     <img className="w-60 h-36 border rounded-lg object-cover" src={hotel.pic_url} alt="default"></img>
                                 </li>
                                 <p className="text-sm">{hotel.name}</p>
