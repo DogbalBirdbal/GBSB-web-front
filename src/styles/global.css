@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "GmarketSansMedium";
+    font-weight: 50;
+    src: url("../fonts/GmarketSansTTFMedium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "GmarketSansLight";
+    font-weight: 50;
+    src: url("../fonts/GmarketSansTTFLight.ttf") format("truetype");
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "GmarketSansLight", "GmarketSansLight", sans-serif;
+}
+
+div {
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
