@@ -9,7 +9,7 @@ function ResultBox(props){
 
     const ResultCard=({list})=>{
         return(
-            <div className="ResultList">
+            <div className="w-full px-default">
                 <div>
                     {list.map((items, idx)=> {
                         if (idx % 2 === 0) {

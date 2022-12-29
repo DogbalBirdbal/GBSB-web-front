@@ -5,10 +5,10 @@ function FirstBox({props}){
     }
 
     return(
-        <div className="w-full h-full relative">
+        <div className="relative w-full h-full relative px-default">
             <img className="w-full h-96 object-cover object-center" src={props.pic_url} alt="default" />
-            <div className="absolute flex-col top-1/2 left-1/2 place-content-center justify-center items-center">
-                <strong className="flex text-white">{props.name}</strong>
+            <div className="absolute flex-col top-1/2 left-1/2 justify-center items-center transform-y-main-center">
+                <strong className="flex text-white drop-shadow-lg">{props.name}</strong>
                 <strong className="flex text-white place-content-center place-items-center whitespace-pre-wrap bg-transparent">
                     {props.address}
                 </strong>
@@ -16,10 +16,9 @@ function FirstBox({props}){
                     더 알아보기
                 </button>
             </div>
-            
+
         </div>
     );
-
 }
 
 export default FirstBox;

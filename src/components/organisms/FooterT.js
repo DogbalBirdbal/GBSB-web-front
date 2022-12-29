@@ -1,8 +1,10 @@
-import Link from "antd/es/typography/Link";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 import axios from "axios";
 
 function FooterT({props}) {
+
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
 
   console.log(props);
   const movePage = useNavigate();
@@ -11,7 +13,7 @@ function FooterT({props}) {
       method: "post",
       url: "api/myinfo/wishlist/",
       data: {
-        id: "1234",
+        id: cookies.user,
         route: JSON.stringify(props)
       }
     }).then(() => {
@@ -23,7 +25,7 @@ function FooterT({props}) {
   }
 
   return(
-      <>
+      <div className="px-default">
         <div className="w-full h-200 bg-real-blue flex justify-center items-center">
           <div className="flex flex-col self-center space-y-3">
             <strong className=" text-white self-center justify-center items-center">이 여행이 마음에 든다면?</strong>
@@ -32,7 +34,7 @@ function FooterT({props}) {
             </button>
           </div>
         </div>
-      </>
+      </div>
   );
 
 }

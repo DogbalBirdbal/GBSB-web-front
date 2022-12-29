@@ -1,19 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useCookies } from 'react-cookie';
 
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 function WishListComponent(){
 
+    const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [wishList, setWishList] = useState([]);
     const [name, setName] = useState("");
 
-    const id = "1234"
-
     useEffect(() => {
-        axios.get(`/api/myinfo/${id}`).then((response) => {
+        axios.get(`/api/myinfo/${cookies.user}`).then((response) => {
             console.log("Successfully Connected")
+            console.log(response.data.name);
             setName(response.data.name);
             setWishList(JSON.parse(response.data.result));
             console.log(JSON.parse(response.data.result));
@@ -76,6 +77,12 @@ function WishListComponent(){
                 })}
             </div>
         )
-    } else return null;
+    } else {
+        return (
+            <div className="w-full h-100 flex flex-col justify-center items-center">
+                <strong className="text-lg">반갑습니다, {name} 님!</strong>
+            </div>
+        );
+    }
 }
 export default WishListComponent;

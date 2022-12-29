@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 
 import { useCookies } from 'react-cookie';
 import { useState } from "react";
@@ -7,7 +7,6 @@ import { useEffect } from "react";
 function Header() {
 
     const navigate = useNavigate();
-
     const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [login, setLogin] = useState(false);
 

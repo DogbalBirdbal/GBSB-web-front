@@ -42,6 +42,7 @@ export default function LoginBoard() {
                 console.log(response.data);
                 alert("반갑습니다. " + response.data.name + "님!");
                 setCookie('user', response.data.token, { path: "/" });
+                console.log(cookies.user);
                 document.getElementById('id').value = null;
                 document.getElementById('password').value = null;
 
