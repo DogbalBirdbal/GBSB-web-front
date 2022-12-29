@@ -1,8 +1,8 @@
-![waving](https://capsule-render.vercel.app/api?type=waving&height=200&text=%20어디갈까?%20또 나만 진심이지%20&fontAlign=50&fontAlignY=40&color=30A9DE&fontSize=40)
+![waving](https://capsule-render.vercel.app/api?type=waving&height=200&text=🤔%20어디갈까?%20어디가세요??%20🤔&fontAlign=50&fontAlignY=40&color=30A9DE&fontSize=40)
 
 <h2>🔍 문제 인식</h2>
-<hr> 급격히 상승하는 물가 속에, 택시 기사님들의 임금은 항상 물가에 비해 낮은 소득 수준을 보여줍니다. 이러한 택시 기사님들의 고충을 이해하고 이로 발생하는 사회 문제를 해결하고자 하였습니다.<br></br>
-<p align="center"><img src="./taxi.png" width="400"/></p>
+<hr> 여행 계획만 짜다가 결국 목적지를 정하지 못하고 여행을 미루기만 하는 사람들 또는 결정이 어려워 계획을 짜는 것이 힘든 사람들을 위해 랜덤으로 식당부터 여행지까지 여행의 모든 과정을 정해주는 웹 서비스입니다. 매일 친구들과 버릇처럼 “이번 방학에 여행이나 가자!” “그래, 어디로?”라는 대화만 반복하다가 결국엔, “또 나만 (여행에) 진심이지?”를 외치며 여행은 먼 미래로 미뤘던 경험은 모두가 한 번은 있을 겁니다. 저희는 이러한 고민을 해결하는 웹 서비스를 제공합니다.<br></br>
+
 <br></br><h2>📱 서비스 소개</h2> <hr>
 어디갈까? 또 나만 진심이지는 여행지를 정하기 어려워하는 사람을 위해 도착지를 설정하면 랜덤으로 장소와 식당을 뽑아 경로를 제공하는 웹 서비스입니다<br></br>
 <p align="center"><img src="./service.gif" width="400"/></p>
