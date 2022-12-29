@@ -1,4 +1,4 @@
-![waving](https://capsule-render.vercel.app/api?type=waving&height=200&text=🤔%20어디갈까?%20어디가세요??%20🤔&fontAlign=50&fontAlignY=40&color=30A9DE&fontSize=40)
+![waving](https://capsule-render.vercel.app/api?type=waving&height=200&text=%20어디갈까?%20또 나만 진심이지%20&fontAlign=50&fontAlignY=40&color=30A9DE&fontSize=40)
 
 <h2>🔍 문제 인식</h2>
 <hr> 급격히 상승하는 물가 속에, 택시 기사님들의 임금은 항상 물가에 비해 낮은 소득 수준을 보여줍니다. 이러한 택시 기사님들의 고충을 이해하고 이로 발생하는 사회 문제를 해결하고자 하였습니다.<br></br>
