@@ -10,6 +10,7 @@ import SelectRestaurantPage from "./pages/SelectRestaurantPage";
 import ResultPage from "./pages/ResultPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
+import MyPage from "./pages/MyPage";
 import "./styles/global.css"
 
 function Router() {
@@ -25,6 +26,7 @@ function Router() {
                     <Route exact path="/result/:id" element={<ResultPage />} />
                     <Route exact path="/login" element={<LoginPage />} />
                     <Route exact path="/signup" element={<SignUpPage />} />
+                    <Route exact path="/mypage" element={<MyPage />} />
                 </Routes>
             </BrowserRouter>
         </CookiesProvider>
