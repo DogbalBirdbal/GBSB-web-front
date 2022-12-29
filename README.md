@@ -1,4 +1,3 @@
-![waving](https://capsule-render.vercel.app/api?type=waving&height=200&text=🤔%20어디갈까?%20어디가세요??%20🤔&fontAlign=50&fontAlignY=40&color=30A9DE&fontSize=40)
 
 <h2>🔍 문제 인식</h2>
 <hr> 여행 계획만 짜다가 결국 목적지를 정하지 못하고 여행을 미루기만 하는 사람들 또는 결정이 어려워 계획을 짜는 것이 힘든 사람들을 위해 랜덤으로 식당부터 여행지까지 여행의 모든 과정을 정해주는 웹 서비스입니다. 매일 친구들과 버릇처럼 “이번 방학에 여행이나 가자!” “그래, 어디로?”라는 대화만 반복하다가 결국엔, “또 나만 (여행에) 진심이지?”를 외치며 여행은 먼 미래로 미뤘던 경험은 모두가 한 번은 있을 겁니다. 저희는 이러한 고민을 해결하는 웹 서비스를 제공합니다.<br></br>
@@ -67,10 +66,8 @@
 </table><hr>
 <h3 align="center">📚 Stacks</h3>
 <p align="center"><img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white" height="20" align="center">
-<img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white" height="20" align="center"></p><hr>
 <h3 align="center">🗂️ License</h3><p align="center"><img alt="GitHub" src="https://img.shields.io/github/license/osamhack2020/Web_Drawing-chat-consulation_Stones-in-greenhouse" align="center"></a></p>
 
 <br></br>
 
-![waving](https://capsule-render.vercel.app/api?type=waving&height=200&text=🚕💨💨💨&fontAlign=50&fontAlignY=70&color=30A9DE&fontSize=40&section=footer)
 
