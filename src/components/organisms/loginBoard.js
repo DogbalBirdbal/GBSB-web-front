@@ -90,9 +90,16 @@ export default function LoginBoard() {
                         로그인
                     </Button>
                 </form>
-                <Link to='/signup' style={{ textDecoration: "none" }}>
-                    <p className="text-sm text-gray-500 py-2">회원가입하기</p>
-                </Link>
+                <div className="flex justify-center">
+                    <Link to='/signup' style={{ textDecoration: "none" }}>
+                        <p className="text-sm text-gray-500 pt-2">회원가입하기</p>
+                    </Link>
+                </div>
+                <div className="flex justify-center">
+                    <Link to='/select/another' style={{ textDecoration: "none" }}>
+                        <p className="text-sm text-gray-500 py-2">비회원으로 계속하기</p>
+                    </Link>
+                </div>
             </Container>
         </div>
     );

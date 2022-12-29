@@ -27,6 +27,9 @@ module.exports = {
         '7vh': '7vh',
         '8vh': '8vh',
         '10vh': '10vh',
+
+        'main-center': '-50%',
+        'main-right': '-100%',
       },
       colors: {
         'blue-dark': '#2980f2',

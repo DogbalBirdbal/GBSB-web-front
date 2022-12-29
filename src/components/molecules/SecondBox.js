@@ -11,7 +11,7 @@ function SecondBox({props}){
                         {props.name}
                     </strong>
                     
-                    <strong className="text-white place-content-center place-items-center">부산 부산진구 서전로38번길 62-9 2층</strong>
+                    <strong className="text-white place-content-center place-items-center">{props.address}</strong>
                     <button onClick={handleClick} className="relative text-white justify-center items-center border-2 p-2 my-2">
                         더 보러 가기
                     </button>

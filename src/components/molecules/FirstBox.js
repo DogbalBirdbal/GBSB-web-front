@@ -10,7 +10,7 @@ function FirstBox({props}){
             <div className="absolute flex-col top-1/2 left-1/2 place-content-center justify-center items-center">
                 <strong className="flex text-white">{props.name}</strong>
                 <strong className="flex text-white place-content-center place-items-center whitespace-pre-wrap bg-transparent">
-                    부산 해운대구 청사포로 116
+                    {props.address}
                 </strong>
                 <button onClick={handleClick} className="relative text-white justify-center items-center border-2 p-2 my-2">
                     더 알아보기
