@@ -34,7 +34,11 @@ export default function LoginBoard() {
                 password: memberData.password,
             }
         }).then((response) => {
-            alert("로그인이 정상적으로 완료되었습니다.");
+            if(response.data.id === "fail" )
+            {
+                alert("로그인 실패")
+            }
+            alert("반갑습니다!" + response.data.name + "님!");
 
             setCookie('id', response.data.token, { path: "/" });
 
