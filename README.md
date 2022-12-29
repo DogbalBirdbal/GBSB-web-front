@@ -33,7 +33,7 @@
 <td style="text-align:left">Team</td>
 <td style="text-align:left">김윤아</td>
 <td style="text-align:left">FrontEnd Developer</td>
-<td style="text-align:left">celebarte11@gmail.com</td>
+<td style="text-align:left">yunah008@gmail.com</td>
 <td style="text-align:left"><a href="https://github.com/thdwoqor">
 <img src="http://img.shields.io/badge/thdwoqor-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td>
@@ -50,8 +50,8 @@
  <tr>
 <td style="text-align:left">Team</td>
 <td style="text-align:left">박상준</td>
-<td style="text-align:left">Frontend Developer</td>
-<td style="text-align:left">ljj020304@pukyong.ac.kr</td>
+<td style="text-align:left">Backend Developer</td>
+<td style="text-align:left">sangjun1389@ajou.ac.kr</td>
 <td style="text-align:left"><a href="https://github.com/o-jeong">
 <img src="http://img.shields.io/badge/o_jeong-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td>
