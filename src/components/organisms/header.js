@@ -8,11 +8,11 @@ function Header() {
 
     const navigate = useNavigate();
 
-    const [cookies, setCookie, removeCookie] = useCookies(['id']);
+    const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [login, setLogin] = useState(false);
 
     const authCheck = () => {
-        const token = cookies.id;
+        const token = cookies.user;
 
         if (token !== undefined) {
             setLogin(true);

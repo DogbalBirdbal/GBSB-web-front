@@ -12,6 +12,7 @@ function WishListComponent(){
             console.log("Successfully Connected")
             // setWishList(((response.data.route).substring(1, ((response.data.route).length) - 1)).split('],['));
             console.log(response.data);
+            // console.log(response.data.wishLists);
         }).catch(() => {
             console.log("Error");
         });
