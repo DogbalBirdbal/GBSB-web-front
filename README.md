@@ -6,8 +6,6 @@
 어디갈까? 또 나만 진심이지는 여행지를 정하기 어려워하는 사람을 위해 도착지를 설정하면 랜덤으로 장소와 식당을 뽑아 경로를 제공하는 웹 서비스입니다<br></br>
 <p align="center"><img src="./service.gif" width="400"/></p>
  <br></br>
- <h2>🔗 서비스 이용하기</h2><hr>
-<a href="https://gdsc-welcome-hackerton.github.io/front/index.html ">https://gdsc-welcome-hackerton.github.io/front/index.html </a>
 <br></br><br></br>
 <h2>🏃‍♂️ 2022 아주 훌륭한SW융합인 </h2><hr>
 어디갈까?는 아주대학교의 <b>'아주 훌륭한 SW 융합인'</b> 대회에 참여한 결과입니다.
