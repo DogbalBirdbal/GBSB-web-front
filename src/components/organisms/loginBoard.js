@@ -36,16 +36,20 @@ export default function LoginBoard() {
         }).then((response) => {
             if(response.data.id === "fail" )
             {
-                alert("로그인 실패")
+                alert("로그인 실패");
             }
-            alert("반갑습니다!" + response.data.name + "님!");
+            else{
+                console.log(response.data);
 
-            setCookie('id', response.data.token, { path: "/" });
+                alert("반갑습니다. " + response.data.name + "님!");
 
-            document.getElementById('id').value = null;
-            document.getElementById('password').value = null
+                setCookie('id', response.data.token, { path: "/" });
 
-            navigate('/select/another');
+                document.getElementById('id').value = null;
+                document.getElementById('password').value = null;
+
+                navigate('/select/another');
+            }
 
         }).catch(() => {
             alert("데이터 베이스 에러");

@@ -59,7 +59,7 @@ function Header() {
                         <Link to='/mypage' style={{ textDecoration: "none" }}>
                             <p>마이페이지</p>
                         </Link>
-                        <button onClick={handleLogOut}>로그아웃</button>
+                        <button type="button" onClick={handleLogOut}>로그아웃</button>
                     </div>
                 </>
             }
