@@ -5,41 +5,48 @@ import Box from "@mui/material/Box";
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
 
-import { Link } from "react-router-dom"
+import axios from "axios";
+
+import { Link, useNavigate } from "react-router-dom"
+
+import useCookies from "react-cookie/cjs/useCookies";
 
 export default function LoginBoard() {
 
-    const [emailError, setEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
+    const navigate = useNavigate();
+
+    const [cookies, setCookie] = useCookies(['id']);
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
         const data = new FormData(e.currentTarget);
 
         const memberData = {
-            email: data.get('email'),
+            id: data.get('id'),
             password: data.get('password')
         };
 
-        const { email, password } = memberData;
+        axios({
+            method: "post",
+            url: "/api/login/",
+            data: {
+                id: memberData.id,
+                password: memberData.password,
+            }
+        }).then((response) => {
+            alert("로그인이 정상적으로 완료되었습니다.");
 
-        const emailRegex = /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            setCookie('id', response.data.token, { path: "/" });
 
-        if (!emailRegex.test(email)) {
-            setEmailError('올바른 이메일 형식이 아닙니다.');
-        } else if (email === null && password === null) {
-            setEmailError('이메일을 입력하세요.');
-            setPasswordError('비밀번호를 입력하세요.');
-        } else if (email === null) {
-            setEmailError('이메일을 입력하세요.');
-        } else if (password === null) {
-            setPasswordError('비밀번호를 입력하세요.');
-        } else {
-            setEmailError('');
-            setPasswordError('');
-        }
+            document.getElementById('id').value = null;
+            document.getElementById('password').value = null
+
+            navigate('/select/another');
+
+        }).catch(() => {
+            alert("데이터 베이스 에러");
+        });
     
-
     }
 
     return(
@@ -48,17 +55,16 @@ export default function LoginBoard() {
                 <img src="/images/header.png" alt="header"></img>
             </div>
             <Container component="main" maxWidth="xs">
-                <Box className="flex flex-col justify-center items-center" componenet="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                <form className="flex flex-col justify-center items-center" componenet="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <TextField 
                         margin="normal"
                         required
                         fullWidth
-                        id="email"
-                        label="이메일"
-                        name="email"
-                        autoComplete="email"
+                        id="id"
+                        label="아이디"
+                        name="id"
+                        autoComplete="id"
                         autoFocus
-                        error={emailError !== '' || false}
                     />
                     <TextField 
                         margin="normal"
@@ -69,7 +75,6 @@ export default function LoginBoard() {
                         label="패스워드"
                         name="password"
                         autoComplete="current-password"
-                        error={passwordError !== '' || false}
                     />
                     <Button
                         type="submit"
@@ -79,7 +84,7 @@ export default function LoginBoard() {
                     >
                         로그인
                     </Button>
-                </Box>
+                </form>
                 <Link to='/signup' style={{ textDecoration: "none" }}>
                     <p className="text-sm text-gray-500 py-2">회원가입하기</p>
                 </Link>

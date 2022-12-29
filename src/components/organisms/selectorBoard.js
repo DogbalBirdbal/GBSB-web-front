@@ -47,13 +47,13 @@ function SelectorBoard() {
                     <div className="flex flex-col gap-y-1vw justify-center">
                         <div className="flex items-center"><p>인원</p></div>
                         <div>
-                            <NumberSelector />
+                            <NumberSelector props={setNumber} />
                         </div>
                     </div>
                     <div className="flex flex-col gap-y-1vw justify-center">
                         <div className="flex items-center"><p>이동 수단</p></div>
                         <div>
-                            <TransSelector />
+                            <TransSelector props={setTrans} />
                         </div>
                     </div>
                     <div className="flex flex-col gap-y-1vw justify-center">

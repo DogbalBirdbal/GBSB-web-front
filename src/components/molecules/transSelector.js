@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TransSelector() {
+function TransSelector({props}) {
 
     const [walk, setWalk] = useState(0);
     const [vehicle, setVehicle] = useState(0);

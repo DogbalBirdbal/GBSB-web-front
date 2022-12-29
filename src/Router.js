@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CookiesProvider } from "react-cookie";
 
 import MainPage from "./pages/MainPage"
 import SelectPlacePage from "./pages/SelectPlacePage";
@@ -13,18 +14,20 @@ import "./styles/global.css"
 
 function Router() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route exact path="/" element={<MainPage />} />
-                <Route exact path="/select/another" element={<SelectAnotherPage />} />
-                <Route exact path="/select/result" element={<SelectResultPage />} />
-                <Route exact path="/select/food" element={<SelectRestaurantPage />} />
-                <Route exact path="/result" element={<ResultPage />} />
-                <Route exact path="/result/:id" element={<ResultPage />} />
-                <Route exact path="/login" element={<LoginPage />} />
-                <Route exact path="/signup" element={<SignUpPage />} />
-            </Routes>
-        </BrowserRouter>
+        <CookiesProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route exact path="/" element={<MainPage />} />
+                    <Route exact path="/select/another" element={<SelectAnotherPage />} />
+                    <Route exact path="/select/result" element={<SelectResultPage />} />
+                    <Route exact path="/select/food" element={<SelectRestaurantPage />} />
+                    <Route exact path="/result" element={<ResultPage />} />
+                    <Route exact path="/result/:id" element={<ResultPage />} />
+                    <Route exact path="/login" element={<LoginPage />} />
+                    <Route exact path="/signup" element={<SignUpPage />} />
+                </Routes>
+            </BrowserRouter>
+        </CookiesProvider>
     );
 }
 

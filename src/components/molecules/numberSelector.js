@@ -6,7 +6,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
-function NumberSelector() {
+function NumberSelector({props}) {
 
     const [open, setOpen] = useState(0);
     const [people, setPeople] = useState(0);
