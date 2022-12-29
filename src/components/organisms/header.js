@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { useCookies } from 'react-cookie';
 import { useState } from "react";
 import { useEffect } from "react";
 
 function Header() {
+
+    const navigate = useNavigate();
 
     const [cookies, setCookie, removeCookie] = useCookies(['id']);
     const [login, setLogin] = useState(false);
@@ -22,6 +24,11 @@ function Header() {
     useEffect(() => {
         authCheck();
     }, [])
+
+    const handleLogOut = () => {
+        removeCookie('id', { path: '/' });
+        navigate("/login");
+    }
 
     return(
         <div className="w-full h-16 px-default flex items-center justify-between border-b">
@@ -52,7 +59,7 @@ function Header() {
                         <Link to='/mypage' style={{ textDecoration: "none" }}>
                             <p>마이페이지</p>
                         </Link>
-                        <p onClick={() => {removeCookie('id');}}>로그아웃</p>
+                        <button onClick={handleLogOut}>로그아웃</button>
                     </div>
                 </>
             }
