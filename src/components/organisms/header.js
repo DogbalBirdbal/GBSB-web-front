@@ -8,14 +8,17 @@ function Header() {
 
     const navigate = useNavigate();
 
-    const [cookies, setCookie, removeCookie] = useCookies(['id']);
+    const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [login, setLogin] = useState(false);
+    const [name, setName] = useState("");
 
     const authCheck = () => {
-        const token = cookies.id;
+        const token = cookies.user.token;
+        const name = cookies.user.name;
 
         if (token !== undefined) {
             setLogin(true);
+            setName(name);
         } else {
             setLogin(false);
         }
@@ -56,6 +59,7 @@ function Header() {
                         </Link>
                     </div>
                     <div className="flex gap-x-5 text-blue-main">
+                        <p>반갑습니다. {name} 님!</p>
                         <Link to='/mypage' style={{ textDecoration: "none" }}>
                             <p>마이페이지</p>
                         </Link>

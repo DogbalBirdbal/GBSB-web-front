@@ -15,7 +15,7 @@ export default function LoginBoard() {
 
     const navigate = useNavigate();
 
-    const [cookies, setCookie] = useCookies(['id']);
+    const [cookies, setCookie] = useCookies(['user']);
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
@@ -36,7 +36,7 @@ export default function LoginBoard() {
         }).then((response) => {
             alert("로그인이 정상적으로 완료되었습니다.");
 
-            setCookie('id', response.data.token, { path: "/" });
+            setCookie('user', {name: response.data.name, token: response.data.token}, { path: "/" });
 
             document.getElementById('id').value = null;
             document.getElementById('password').value = null
