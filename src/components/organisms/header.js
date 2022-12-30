@@ -35,7 +35,7 @@ function Header() {
                 <>
                     <div>
                         <Link to='/' style={{ textDecoration: "none" }}>
-                            <img className="w-10" src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
+                            <img className="w-10" src={process.env.PUBLIC_URL + '/darkblue.png'} alt="logo" />
                         </Link>
                     </div>
                     <div className="flex gap-x-5 text-blue-main">
