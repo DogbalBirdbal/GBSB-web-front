@@ -6,11 +6,13 @@ function FooterT({props}) {
 
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
 
+  const navigate = useNavigate();
+
   console.log(props);
   const movePage = useNavigate();
   const handleClick = (e) => {
     if (cookies.user === undefined) {
-      alert("로그인 되지 않은 유저입니다.");
+      navigate('/login');
     } else {
       axios({
         method: "post",
