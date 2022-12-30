@@ -26,7 +26,7 @@ function Header() {
 
     const handleLogOut = () => {
         removeCookie('user', { path: '/' });
-        navigate("/login");
+        window.location.replace('/login');
     }
 
     return(

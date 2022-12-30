@@ -9,19 +9,23 @@ function FooterT({props}) {
   console.log(props);
   const movePage = useNavigate();
   const handleClick = (e) => {
-    axios({
-      method: "post",
-      url: "api/myinfo/wishlist/",
-      data: {
-        id: cookies.user,
-        route: JSON.stringify(props)
-      }
-    }).then(() => {
-      console.log("Successfully connected");
-      alert("위시리스트에 정상적으로 추가되었습니다.");
-    }).catch(() => {
-      alert("데이터 베이스 에러");
-    });
+    if (cookies.user === undefined) {
+      alert("로그인 되지 않은 유저입니다.");
+    } else {
+      axios({
+        method: "post",
+        url: "api/myinfo/wishlist/",
+        data: {
+          id: cookies.user,
+          route: JSON.stringify(props)
+        }
+      }).then(() => {
+        console.log("Successfully connected");
+        alert("위시리스트에 정상적으로 추가되었습니다.");
+      }).catch(() => {
+        alert("데이터 베이스 에러");
+      });
+    }
   }
 
   return(
