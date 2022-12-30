@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom"
 
 import axios from "axios";
 
@@ -11,14 +12,15 @@ export default function SignUpBoard() {
 
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-
+    // useNavigate()를 사용하여 페이지 이동
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("click");
         const data = new FormData(e.currentTarget);
 
         const memberData = {
-            uid: data.get('uid'),
+            id: data.get('id'),
             password: data.get('password'),
             email: data.get('email'),
             name: data.get('name'),
@@ -46,7 +48,7 @@ export default function SignUpBoard() {
             method: "post",
             url: "/api/signup/",
             data: {
-                uid: memberData.uid,
+                id: memberData.id,
                 password: memberData.password,
                 email: memberData.email,
                 name: memberData.name,
@@ -55,9 +57,12 @@ export default function SignUpBoard() {
             console.log(response.data);
 
             alert("가입이 정상적으로 완료되었습니다.");
-            document.getElementById('uid').value = null;
-            document.getElementById('password').value = null
+            document.getElementById('id').value = null;
+            document.getElementById('password').value = null;
+            document.getElementById('email').value = null;
+            document.getElementById('name').value = null
 
+            navigate('/login');
         }).catch(() => {
             alert("데이터 베이스 에러");
         });
@@ -74,10 +79,10 @@ export default function SignUpBoard() {
                         margin="normal"
                         required
                         fullWidth
-                        id="uid"
+                        id="id"
                         label="아이디"
-                        name="uid"
-                        autoComplete="uid"
+                        name="id"
+                        autoComplete="id"
                         autoFocus
                     />
                     <TextField 

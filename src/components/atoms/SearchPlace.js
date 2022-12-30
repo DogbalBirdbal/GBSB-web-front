@@ -16,7 +16,7 @@ function SearchPlace({props}){
         setOpen(open => !open);
     }
 
-    const placeList = ["서울", "부산", "수원", "제주"]
+    const placeList = ["대구", "부산", "수원", "제주"]
 
     return(
         <div>
