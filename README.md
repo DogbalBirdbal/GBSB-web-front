@@ -33,7 +33,7 @@
 <td style="text-align:left">Team</td>
 <td style="text-align:left">김윤아</td>
 <td style="text-align:left">FrontEnd Developer</td>
-<td style="text-align:left">yunah008@gmail.com</td>
+<td style="text-align:left">hanuuny@gmail.com</td>
 <td style="text-align:left"><a href="https://github.com/anttiey">
 <img src="http://img.shields.io/badge/yunah008-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 </a></td>
